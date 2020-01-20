@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="medicalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="patient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="fiche_number" Type="int" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="birthday" Type="date" />
+    <Property Name="adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="profession" Type="nvarchar" MaxLength="200" />
+    <Property Name="isSync" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rdv">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="patient_id" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="date_rdv" Type="datetime" Nullable="false" />
+    <Property Name="isSync" Type="int" Nullable="false" />
+    <Property Name="type_id" Type="int" Nullable="false" />
+    <Property Name="status_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rdv_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="label" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="color" Type="nvarchar" MaxLength="200" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="type_rdv">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="label" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" />
+    <Property Name="color" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_rdv_patient">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="rdv" Type="Self.rdv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rdv">
+        <PropertyRef Name="patient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rdv_rdv_status">
+    <End Role="rdv_status" Type="Self.rdv_status" Multiplicity="1" />
+    <End Role="rdv" Type="Self.rdv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rdv_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rdv">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rdv_type_rdv">
+    <End Role="type_rdv" Type="Self.type_rdv" Multiplicity="1" />
+    <End Role="rdv" Type="Self.rdv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_rdv">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rdv">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getAllRdv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="medicalModelStoreContainer">
+    <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rdv" EntityType="Self.rdv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rdv_status" EntityType="Self.rdv_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="type_rdv" EntityType="Self.type_rdv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_rdv_patient" Association="Self.FK_rdv_patient">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="rdv" EntitySet="rdv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rdv_rdv_status" Association="Self.FK_rdv_rdv_status">
+      <End Role="rdv_status" EntitySet="rdv_status" />
+      <End Role="rdv" EntitySet="rdv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rdv_type_rdv" Association="Self.FK_rdv_type_rdv">
+      <End Role="type_rdv" EntitySet="type_rdv" />
+      <End Role="rdv" EntitySet="rdv" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

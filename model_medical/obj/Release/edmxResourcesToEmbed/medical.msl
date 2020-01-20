@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="medicalModelStoreContainer" CdmEntityContainer="medicalEntities">
+    <EntitySetMapping Name="rdv_status">
+      <EntityTypeMapping TypeName="medicalModel.rdv_status">
+        <MappingFragment StoreEntitySet="rdv_status">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_rdv">
+      <EntityTypeMapping TypeName="medicalModel.type_rdv">
+        <MappingFragment StoreEntitySet="type_rdv">
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="medicalModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="patient">
+      <EntityTypeMapping TypeName="medicalModel.patient">
+        <MappingFragment StoreEntitySet="patient">
+          <ScalarProperty Name="isSync" ColumnName="isSync" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="fiche_number" ColumnName="fiche_number" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getAllRdv" FunctionName="medicalModel.Store.getAllRdv">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="medicalModel.getAllRdv_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="date_rdv" ColumnName="date_rdv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="rdv">
+      <EntityTypeMapping TypeName="medicalModel.rdv">
+        <MappingFragment StoreEntitySet="rdv">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+          <ScalarProperty Name="isSync" ColumnName="isSync" />
+          <ScalarProperty Name="date_rdv" ColumnName="date_rdv" />
+          <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

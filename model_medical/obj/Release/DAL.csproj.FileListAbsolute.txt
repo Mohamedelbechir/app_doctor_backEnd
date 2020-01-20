@@ -1,0 +1,13 @@
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\model_medical.dll.config
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\model_medical.dll
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\model_medical.pdb
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\EntityFramework.dll
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\EntityFramework.SqlServer.dll
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\EntityFramework.xml
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\EntityFramework.SqlServer.xml
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\bin\Release\fr\EntityFramework.resources.dll
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\obj\Release\DAL.csprojAssemblyReference.cache
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\obj\Release\DAL.csproj.CopyComplete
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\obj\Release\model_medical.dll
+D:\Mes études\Projet_Visuel_Studio\service_medical\model_medical\obj\Release\model_medical.pdb

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a8580b6a02b64ead9f92b8f55c52d0d7" Name="Diagram1">
+        <EntityTypeShape EntityType="medicalModel.rdv_status" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="medicalModel.type_rdv" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="medicalModel.user" Width="1.5" PointX="6.375" PointY="2.25" />
+        <EntityTypeShape EntityType="medicalModel.patient" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="medicalModel.rdv" Width="1.5" PointX="3.875" PointY="2.5" />
+        <AssociationConnector Association="medicalModel.FK_rdv_patient" />
+        <AssociationConnector Association="medicalModel.FK_rdv_rdv_status" />
+        <AssociationConnector Association="medicalModel.FK_rdv_type_rdv" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
